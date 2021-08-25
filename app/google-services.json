@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "260715356964",
+    "project_id": "fastcampus-the-red---mobile",
+    "storage_bucket": "fastcampus-the-red---mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260715356964:android:1d215148381443d45909b1",
+        "android_client_info": {
+          "package_name": "com.maryang.theredhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260715356964-ln50acu2rtvtj1sh1gllshucbm812vr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGJ-9--_y0HQ9kNqCyWKm8LiRH6dyGuR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260715356964-ln50acu2rtvtj1sh1gllshucbm812vr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

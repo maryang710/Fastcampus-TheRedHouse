@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.maryang.theredhouse.ui.list.HouseListActivity">
+    <item
+        android:id="@+id/action_upload"
+        android:orderInCategory="100"
+        android:title="매물 올리기"
+        app:showAsAction="never" />
+</menu>
