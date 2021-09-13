@@ -13,4 +13,8 @@ object EventDefinitions {
     fun completeUploadHouse() = EventDefinition(
         eventName = "complete__upload_house"
     )
+
+    fun clickContactHouseDetail() = EventDefinition(
+        eventName = "click_contact__house_detail"
+    )
 }

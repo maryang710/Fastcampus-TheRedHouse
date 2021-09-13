@@ -1,5 +1,7 @@
 package com.maryang.theredhouse.featureflag
 
+import android.util.Log
+import com.google.firebase.installations.FirebaseInstallations
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -16,7 +18,10 @@ object RemoteConfigManager {
         )
         Firebase.remoteConfig.setDefaultsAsync(
             mapOf<String, Any>(
-                ConfigVariable.ContactButtonText.toPair()
+                ConfigVariable.ShowHouseListItemImageOnRightSide.toPair(),
+                ConfigVariable.ShowHouseListGrid2Column.toPair(),
+                ConfigVariable.ContactButtonText.toPair(),
+                ConfigVariable.MoveContactButtonBottomToFloating.toPair()
             )
         )
         Firebase.remoteConfig.fetchAndActivate()
@@ -33,4 +38,15 @@ object RemoteConfigManager {
 
     fun getDouble(variable: ConfigVariable<Double>): Double =
         Firebase.remoteConfig.getDouble(variable.key)
+
+    fun getFirebaseToken() {
+        FirebaseInstallations.getInstance().getToken(/* forceRefresh */ false)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("Installations", "Installation auth token: " + task.result?.token)
+                } else {
+                    Log.e("Installations", "Unable to get Installation auth token")
+                }
+            }
+    }
 }

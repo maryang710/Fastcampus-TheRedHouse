@@ -10,6 +10,9 @@ import android.view.View
 import androidx.activity.viewModels
 import com.maryang.theredhouse.R
 import com.maryang.theredhouse.databinding.ActivityHouseDetailBinding
+import com.maryang.theredhouse.event.EnterEventDefinitions
+import com.maryang.theredhouse.event.EventDefinition
+import com.maryang.theredhouse.event.EventDefinitions
 import com.maryang.theredhouse.featureflag.ConfigVariable
 import com.maryang.theredhouse.featureflag.RemoteConfigManager
 import com.maryang.theredhouse.ui.base.BaseViewModelActivity
@@ -21,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HouseDetailActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivityHouseDetailBinding
+    override var enterEvent: EventDefinition? = EnterEventDefinitions.houseDetail()
     override val viewModel by viewModels<HouseDetailViewModel>()
 
     companion object {
@@ -60,6 +64,7 @@ class HouseDetailActivity : BaseViewModelActivity() {
 
         binding.contactButton.text = RemoteConfigManager.getString(ConfigVariable.ContactButtonText)
         binding.contactButton.setOnClickListener { view ->
+            analyticsManager.logEvent(EventDefinitions.clickContactHouseDetail())
             startActivity(
                 Intent(Intent.ACTION_DIAL, Uri.parse("tel:${viewModel.houseLiveData.value?.contact}"))
             )
@@ -67,6 +72,7 @@ class HouseDetailActivity : BaseViewModelActivity() {
 
         binding.contactButtonFab.setColorFilter(Color.WHITE)
         binding.contactButtonFab.setOnClickListener { view ->
+            analyticsManager.logEvent(EventDefinitions.clickContactHouseDetail())
             startActivity(
                 Intent(Intent.ACTION_DIAL, Uri.parse("tel:${viewModel.houseLiveData.value?.contact}"))
             )

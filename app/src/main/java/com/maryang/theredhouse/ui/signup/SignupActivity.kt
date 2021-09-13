@@ -6,6 +6,8 @@ import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import com.maryang.theredhouse.R
 import com.maryang.theredhouse.databinding.ActivitySignupBinding
+import com.maryang.theredhouse.event.EnterEventDefinitions
+import com.maryang.theredhouse.event.EventDefinition
 import com.maryang.theredhouse.ui.base.BaseViewModelActivity
 import com.maryang.theredhouse.ui.list.HouseListActivity
 import com.maryang.theredhouse.util.PatternUtil
@@ -16,6 +18,7 @@ import io.reactivex.rxkotlin.plusAssign
 class SignupActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivitySignupBinding
+    override var enterEvent: EventDefinition? = EnterEventDefinitions.signUp()
     override val viewModel by viewModels<SignupViewModel>()
 
     companion object {

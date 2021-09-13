@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.maryang.theredhouse.BuildConfig
 import com.maryang.theredhouse.R
 import com.maryang.theredhouse.databinding.ActivityHouseListBinding
+import com.maryang.theredhouse.event.EnterEventDefinitions
+import com.maryang.theredhouse.event.EventDefinition
 import com.maryang.theredhouse.featureflag.ConfigVariable
 import com.maryang.theredhouse.featureflag.RemoteConfigManager
 import com.maryang.theredhouse.ui.base.BaseViewModelActivity
@@ -22,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HouseListActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivityHouseListBinding
+    override var enterEvent: EventDefinition? = EnterEventDefinitions.houseList()
     private val adapter by lazy {
         HouseListAdapter()
     }
