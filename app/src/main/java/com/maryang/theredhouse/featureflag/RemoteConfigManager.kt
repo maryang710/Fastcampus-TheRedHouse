@@ -18,10 +18,6 @@ object RemoteConfigManager {
         )
         Firebase.remoteConfig.setDefaultsAsync(
             mapOf<String, Any>(
-                ConfigVariable.ShowHouseListItemImageOnRightSide.toPair(),
-                ConfigVariable.ShowHouseListGrid2Column.toPair(),
-                ConfigVariable.ContactButtonText.toPair(),
-                ConfigVariable.MoveContactButtonBottomToFloating.toPair()
             )
         )
         Firebase.remoteConfig.fetchAndActivate()

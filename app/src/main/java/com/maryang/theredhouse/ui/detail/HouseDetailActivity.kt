@@ -54,15 +54,10 @@ class HouseDetailActivity : BaseViewModelActivity() {
     }
 
     private fun setContactButton() {
-        if (RemoteConfigManager.getBoolean(ConfigVariable.MoveContactButtonBottomToFloating)) {
-            binding.contactButton.visibility = View.GONE
-            binding.contactButtonFab.visibility = View.VISIBLE
-        } else {
-            binding.contactButton.visibility = View.VISIBLE
-            binding.contactButtonFab.visibility = View.GONE
-        }
+        binding.contactButton.visibility = View.VISIBLE
+        binding.contactButtonFab.visibility = View.GONE
 
-        binding.contactButton.text = RemoteConfigManager.getString(ConfigVariable.ContactButtonText)
+        binding.contactButton.text = "연락하기"
         binding.contactButton.setOnClickListener { view ->
             analyticsManager.logEvent(EventDefinitions.clickContactHouseDetail())
             startActivity(

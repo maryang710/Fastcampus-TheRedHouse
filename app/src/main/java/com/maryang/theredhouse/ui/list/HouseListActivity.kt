@@ -62,11 +62,7 @@ class HouseListActivity : BaseViewModelActivity() {
 
     private fun setList() {
         binding.list.adapter = adapter
-        if (RemoteConfigManager.getBoolean(ConfigVariable.ShowHouseListGrid2Column)) {
-            binding.list.layoutManager = GridLayoutManager(this, 2)
-        } else {
-            binding.list.layoutManager = LinearLayoutManager(this)
-        }
+        binding.list.layoutManager = LinearLayoutManager(this)
         binding.refreshLayout.setOnRefreshListener {
             viewModel.getHouseList()
             binding.refreshLayout.isRefreshing = false

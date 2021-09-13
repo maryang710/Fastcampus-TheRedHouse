@@ -20,15 +20,9 @@ import com.maryang.theredhouse.util.extension.glide
 class HouseListAdapter : BaseListAdapter<HouseEntity>(BaseDiffUtilItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<HouseEntity> =
-        if (RemoteConfigManager.getBoolean(ConfigVariable.ShowHouseListItemImageOnRightSide)) {
-            HouseImageRightViewHolder(
-                ItemHouseListImageRightBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            )
-        } else {
-            HouseViewHolder(
-                ItemHouseListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            )
-        }
+        HouseViewHolder(
+            ItemHouseListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
 
 
     class HouseViewHolder(
