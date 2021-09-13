@@ -40,8 +40,6 @@ class SignupViewModel @Inject constructor(
     fun signup(email: String, password: String, checkPolicy: Boolean) {
         userRepository.signup(email)
             .doOnSuccess { userId ->
-                analyticsManager.logEvent(EventDefinitions.signUp())
-                analyticsManager.setUserId(userId.toString())
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

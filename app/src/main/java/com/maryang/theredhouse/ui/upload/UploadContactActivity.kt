@@ -18,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class UploadContactActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivityUploadContactBinding
-    override var enterEvent: EventDefinition? = EnterEventDefinitions.uploadContact()
     override val viewModel by viewModels<UploadContactViewModel>()
 
     companion object {

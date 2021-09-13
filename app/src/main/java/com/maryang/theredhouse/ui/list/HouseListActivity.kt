@@ -24,7 +24,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HouseListActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivityHouseListBinding
-    override var enterEvent: EventDefinition? = EnterEventDefinitions.houseList()
     private val adapter by lazy {
         HouseListAdapter()
     }

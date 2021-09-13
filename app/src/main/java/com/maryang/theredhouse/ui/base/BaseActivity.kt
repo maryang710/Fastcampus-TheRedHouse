@@ -11,7 +11,6 @@ import javax.inject.Inject
 abstract class BaseActivity : AppCompatActivity() {
 
     protected val compositeDisposable = CompositeDisposable()
-    protected open var enterEvent: EventDefinition? = null
 
     @Inject
     lateinit var analyticsManager: AnalyticsManager
@@ -24,9 +23,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (enterEvent != null) {
-            analyticsManager.logEvent(enterEvent!!)
-        }
     }
 
     override fun onDestroy() {

@@ -48,7 +48,6 @@ class BaseApplication : Application() {
 
             override fun onActivityStarted(activity: Activity) {
                 if (++running == 1) {
-                    analyticsManager.logEvent(EventDefinitions.openApp())
                 }
             }
 

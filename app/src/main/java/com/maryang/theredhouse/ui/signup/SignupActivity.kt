@@ -18,7 +18,6 @@ import io.reactivex.rxkotlin.plusAssign
 class SignupActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivitySignupBinding
-    override var enterEvent: EventDefinition? = EnterEventDefinitions.signUp()
     override val viewModel by viewModels<SignupViewModel>()
 
     companion object {

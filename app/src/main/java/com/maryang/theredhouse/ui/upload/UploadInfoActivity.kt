@@ -20,7 +20,6 @@ import io.reactivex.subjects.BehaviorSubject
 class UploadInfoActivity : BaseActivity() {
 
     private lateinit var binding: ActivityUploadInfoBinding
-    override var enterEvent: EventDefinition? = EnterEventDefinitions.uploadInfo()
 
     private val priceState = BehaviorSubject.createDefault(false)
     private val nameState = BehaviorSubject.createDefault(false)

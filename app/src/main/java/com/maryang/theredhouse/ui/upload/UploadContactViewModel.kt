@@ -24,8 +24,6 @@ class UploadContactViewModel @Inject constructor(
     fun upload(house: HouseEntity.Upload) {
         houseRepository.upload(house)
             .doOnComplete {
-                analyticsManager.logEvent(EventDefinitions.completeUploadHouse())
-                analyticsManager.setUserProperty(UserPropertyDefinitions.houseHost, true.toString())
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

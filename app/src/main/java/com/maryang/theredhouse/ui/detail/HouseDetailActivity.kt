@@ -24,7 +24,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HouseDetailActivity : BaseViewModelActivity() {
 
     private lateinit var binding: ActivityHouseDetailBinding
-    override var enterEvent: EventDefinition? = EnterEventDefinitions.houseDetail()
     override val viewModel by viewModels<HouseDetailViewModel>()
 
     companion object {
@@ -59,7 +58,6 @@ class HouseDetailActivity : BaseViewModelActivity() {
 
         binding.contactButton.text = "연락하기"
         binding.contactButton.setOnClickListener { view ->
-            analyticsManager.logEvent(EventDefinitions.clickContactHouseDetail())
             startActivity(
                 Intent(Intent.ACTION_DIAL, Uri.parse("tel:${viewModel.houseLiveData.value?.contact}"))
             )
@@ -67,7 +65,6 @@ class HouseDetailActivity : BaseViewModelActivity() {
 
         binding.contactButtonFab.setColorFilter(Color.WHITE)
         binding.contactButtonFab.setOnClickListener { view ->
-            analyticsManager.logEvent(EventDefinitions.clickContactHouseDetail())
             startActivity(
                 Intent(Intent.ACTION_DIAL, Uri.parse("tel:${viewModel.houseLiveData.value?.contact}"))
             )

@@ -12,7 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class UploadTypeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityUploadTypeBinding
-    override var enterEvent: EventDefinition? = EnterEventDefinitions.uploadType()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

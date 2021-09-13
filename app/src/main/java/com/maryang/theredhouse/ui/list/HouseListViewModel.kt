@@ -44,7 +44,6 @@ class HouseListViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : DefaultCompletableObserver() {
                 override fun onComplete() {
-                    analyticsManager.setUserId(null)
                     logoutLiveData.postValue(true)
                 }
             })
