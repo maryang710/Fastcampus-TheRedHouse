@@ -38,15 +38,4 @@ object RemoteConfigManager {
 
     fun getDouble(variable: ConfigVariable<Double>): Double =
         Firebase.remoteConfig.getDouble(variable.key)
-
-    fun getFirebaseToken() {
-        FirebaseInstallations.getInstance().getToken(/* forceRefresh */ false)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Log.d("Installations", "Installation auth token: " + task.result?.token)
-                } else {
-                    Log.e("Installations", "Unable to get Installation auth token")
-                }
-            }
-    }
 }

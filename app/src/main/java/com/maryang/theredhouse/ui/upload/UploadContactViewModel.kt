@@ -5,6 +5,7 @@ import com.maryang.theredhouse.data.repository.HouseRepository
 import com.maryang.theredhouse.domain.entity.HouseEntity
 import com.maryang.theredhouse.event.AnalyticsManager
 import com.maryang.theredhouse.event.EventDefinitions
+import com.maryang.theredhouse.event.UserPropertyDefinitions
 import com.maryang.theredhouse.ui.base.BaseViewModel
 import com.maryang.theredhouse.util.observer.DefaultCompletableObserver
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +25,7 @@ class UploadContactViewModel @Inject constructor(
         houseRepository.upload(house)
             .doOnComplete {
                 analyticsManager.logEvent(EventDefinitions.completeUploadHouse())
-                analyticsManager.setUserProperty(AnalyticsManager.PROPERTY_HOUSE_HOST, true.toString())
+                analyticsManager.setUserProperty(UserPropertyDefinitions.houseHost, true.toString())
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
